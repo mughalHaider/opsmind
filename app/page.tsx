@@ -1,69 +1,83 @@
-import Image from "next/image";
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+};
 
-export default function Home() {
+export default async function Home() {
+  let products: Product[] = [];
+  let error = "";
+
+  try {
+    const response = await fetch("https://fakestoreapi.com/products?limit=20", {
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      throw new Error("Unable to load products.");
+    }
+
+    const data: Product[] = await response.json();
+    products = data.slice(0, 20);
+
+    // Temporary server-side log. This appears in the Next.js terminal.
+    console.log("Fetched products:", products);
+  } catch (fetchError) {
+    error =
+      fetchError instanceof Error
+        ? fetchError.message
+        : "Unable to load products.";
+    console.error("Product fetch failed:", fetchError);
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the the the the the the the the the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              Vist page.tsx to modify this content
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-zinc-50 px-6 py-12 text-zinc-900 sm:px-10">
+      <div className="mx-auto max-w-7xl">
+        <header className="mb-10">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-zinc-500">
+            Fake Store API
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          <h1 className="text-4xl font-bold tracking-tight">Products</h1>
+        </header>
+
+        {error && <p className="text-red-600">{error}</p>}
+
+        {!error && (
+          <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {products.map((product) => (
+              <article
+                key={product.id}
+                className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm"
+              >
+                <div className="flex h-64 items-center justify-center bg-white p-6">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col border-t border-zinc-100 p-5">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-500">
+                    {product.category}
+                  </p>
+                  <h2 className="line-clamp-2 text-lg font-semibold">
+                    {product.title}
+                  </h2>
+                  <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
+                    {product.description}
+                  </p>
+                  <p className="mt-5 text-xl font-bold">
+                    ${product.price.toFixed(2)}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </section>
+        )}
+      </div>
+    </main>
   );
 }
