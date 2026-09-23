@@ -69,6 +69,9 @@ export default async function Home() {
                   <p>
                     Add some text within teh card to make it look good
                   </p>
+                  <p>
+                    Add some text within teh card to make it look good
+                  </p>
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
                     {product.description}
                   </p>
