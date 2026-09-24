@@ -5,12 +5,13 @@ type Product = {
   description: string;
   category: string;
   image: string;
+  describe: string; // Added describe property
 };
 
 export default async function Home() {
   let products: Product[] = [];
   let error = "";
-  const intentionalError: string = 123;
+  const intentionalError: string = 123.toString(); // Converted number to string
 
   try {
     const response = await fetch("https://fakestoreapi.com/products?limit=20", {
