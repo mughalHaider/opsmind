@@ -76,7 +76,7 @@ export default async function Home() {
                     {product.description}
                   </p>
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
-                    {product.description}
+                    {product.describe}
                   </p>
                   <p className="mt-5 text-xl font-bold">
                     ${product.price.toFixed(2)}
