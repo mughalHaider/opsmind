@@ -41,6 +41,7 @@ export default async function Home() {
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-zinc-500">
             Fake Store API
           </p>
+          <p>Hey there!</p>
           <h1 className="text-4xl font-bold tracking-tight">Products</h1>
         </header>
 
