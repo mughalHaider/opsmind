@@ -74,6 +74,14 @@ export default async function Home() {
                     any text you want to add here, for example, a brief summary or additional information about the product. This can help users understand more about what they are looking at and make informed decisions when browsing through the products.
                   </p>
                   
+                  <p>
+                    any text you want to add here, for example, a brief summary or additional information about the product. This can help users understand more about what they are looking at and make informed decisions when browsing through the products.
+                  </p>
+                  <p>
+                    any text you want to add here, for example, a brief summary or additional information about the product. This can help users understand more about what they are looking at and make informed decisions when browsing through the products.
+                  </p><p>
+                    any text you want to add here, for example, a brief summary or additional information about the product. This can help users understand more about what they are looking at and make informed decisions when browsing through the products.
+                  </p>
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
                     {product.description}
                   </p>
