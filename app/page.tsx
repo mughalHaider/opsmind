@@ -58,7 +58,7 @@ export default async function Home() {
                 <div className="flex h-64 items-center justify-center bg-white p-6">
                   <img
                     src={product.image}
-                    alt={product.title}
+                    alt={product.tile}
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -69,12 +69,6 @@ export default async function Home() {
                   <h2 className="line-clamp-2 text-lg font-semibold">
                     {product.title}
                   </h2>
-                  <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
-                    {product.description}
-                  </p>
-                  <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
-                    {product.description}
-                  </p>
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
                     {product.describe}
                   </p>
