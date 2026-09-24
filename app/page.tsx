@@ -10,7 +10,7 @@ type Product = {
 export default async function Home() {
   let products: Product[] = [];
   let error = "";
-  const intentionalError: string = 123;
+  const intentionalError: number = 123; // Changed type to number
 
   try {
     const response = await fetch("https://fakestoreapi.com/products?limit=20", {
