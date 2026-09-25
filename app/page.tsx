@@ -10,11 +10,10 @@ type Product = {
 export default async function Home() {
   let products: Product[] = [];
   let error = "";
-  const intentionalError: number = 123;
 
   try {
     const response = await fetch("https://fakestoreapi.com/products?limit=20", {
-      cache: "no-store",
+      next: { revalidate: 60 }, // regenerate in the background at most every 60s
     });
 
     if (!response.ok) {
@@ -23,9 +22,6 @@ export default async function Home() {
 
     const data: Product[] = await response.json();
     products = data.slice(0, 20);
-
-    // Temporary server-side log. This appears in the Next.js terminal.
-    console.log("Fetched products:", products);
   } catch (fetchError) {
     error =
       fetchError instanceof Error
@@ -41,8 +37,11 @@ export default async function Home() {
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-zinc-500">
             Fake Store API testing
           </p>
-          <p>Hey there! I am joining the fake store API.</p>
-          Store API. If you encounter any issues, it might be due to the API being down or unreachable. In such cases, an error message will be displayed below.
+          <p>
+            Hey there! I am joining the fake store API. If you encounter any
+            issues, it might be due to the API being down or unreachable. In
+            such cases, an error message will be displayed below.
+          </p>
           <h1 className="text-4xl font-bold tracking-tight">Products</h1>
         </header>
 
