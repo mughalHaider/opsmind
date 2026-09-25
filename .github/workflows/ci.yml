@@ -18,6 +18,8 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        env:
+          NODE_OPTIONS: "--no-deprecation"
 
       - name: Build app
         run: npm run build
