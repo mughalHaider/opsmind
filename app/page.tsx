@@ -10,7 +10,7 @@ type Product = {
 export default async function Home() {
   let products: Product[] = [];
   let error = "";
-  const intentionalError: string = 123;
+  const intentionalError: number = 123;
 
   try {
     const response = await fetch("https://fakestoreapi.com/products?limit=20", {
@@ -58,7 +58,7 @@ export default async function Home() {
                 <div className="flex h-64 items-center justify-center bg-white p-6">
                   <img
                     src={product.image}
-                    alt={product.tile}
+                    alt={product.title}
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -70,7 +70,7 @@ export default async function Home() {
                     {product.title}
                   </h2>
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
-                    {product.describe}
+                    {product.description}
                   </p>
                   <p className="mt-5 text-xl font-bold">
                     ${product.price.toFixed(2)}
