@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 type Product = {
   id: number;
   title: string;
@@ -10,7 +12,6 @@ type Product = {
 export default async function Home() {
   let products: Product[] = [];
   let error = "";
-  const intentionalError: number = 123;
 
   try {
     const response = await fetch("https://fakestoreapi.com/products?limit=20", {
@@ -18,14 +19,11 @@ export default async function Home() {
     });
 
     if (!response.ok) {
-      throw new Error("Unable to load products.");
+      throw new Error(`Unable to load products. Status: ${response.status}`);
     }
 
     const data: Product[] = await response.json();
     products = data.slice(0, 20);
-
-    // Temporary server-side log. This appears in the Next.js terminal.
-    console.log("Fetched products:", products);
   } catch (fetchError) {
     error =
       fetchError instanceof Error
@@ -41,24 +39,33 @@ export default async function Home() {
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-zinc-500">
             Fake Store API testing
           </p>
-          <p>Hey there! I am joining the fake store API.</p>
-          please note that this page fetches product Store API. If you encounter any issues, it might be due to the API being down or unreachable. In such cases, an error message will be displayed below.
-          <h1 className="text-4xl font-bold tracking-tight">Products</h1>
+          <p className="text-base text-zinc-700">
+            Hey there! I am joining the fake store API.
+          </p>
+          <p className="mt-2 text-sm text-zinc-500">
+            Please note that this page fetches products from Fake Store API. If you encounter any issues, it might be due to the API being down or unreachable. In such cases, an error message will be displayed below.
+          </p>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight">Products</h1>
         </header>
 
-        {error && <p className="text-red-600">{error}</p>}
+        {error && (
+          <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-600">
+            {error}
+          </div>
+        )}
 
         {!error && (
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product) => (
               <article
                 key={product.id}
-                className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm"
+                className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md"
               >
                 <div className="flex h-64 items-center justify-center bg-white p-6">
                   <img
                     src={product.image}
                     alt={product.title}
+                    loading="lazy"
                     className="h-full w-full object-contain"
                   />
                 </div>
