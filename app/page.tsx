@@ -64,7 +64,7 @@ export default async function Home() {
                 <div className="flex h-64 items-center justify-center bg-white p-6">
                   <img
                     src={product.image}
-                    alt={product.tile}
+                    alt={product.title}
                     loading="lazy"
                     className="h-full w-full object-contain"
                   />
@@ -77,7 +77,7 @@ export default async function Home() {
                     {product.title}
                   </h2>
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
-                    {product.describe}
+                    {product.description}
                   </p>
                   <p className="mt-5 text-xl font-bold">
                     ${product.price.toFixed(2)}
