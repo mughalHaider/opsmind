@@ -64,7 +64,7 @@ export default async function Home() {
                 <div className="flex h-64 items-center justify-center bg-white p-6">
                   <img
                     src={product.image}
-                    alt={product.title}
+                    alt={product.tit}
                     loading="lazy"
                     className="h-full w-full object-contain"
                   />
