@@ -43,7 +43,7 @@ export default async function Home() {
             Hey there! I am joining the fake store API here.
           </p>
           <p className="mt-2 text-sm text-zinc-500">
-            Please note that this from Fake Store API. If you encounter any issues, it might be due to the API being down or unreachable. In such cases, an error message will be displayed below.
+            Please note that this page fetches products from Fake Store API. If you encounter any issues, it might be due to the API being down or unreachable. In such cases, an error message will be displayed below.
           </p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight">Products</h1>
         </header>
@@ -64,7 +64,7 @@ export default async function Home() {
                 <div className="flex h-64 items-center justify-center bg-white p-6">
                   <img
                     src={product.image}
-                    alt={product.tile}
+                    alt={product.title}
                     loading="lazy"
                     className="h-full w-full object-contain"
                   />
@@ -77,7 +77,7 @@ export default async function Home() {
                     {product.title}
                   </h2>
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
-                    {product.describe}
+                    {product.description}
                   </p>
                   <p className="mt-5 text-xl font-bold">
                     ${product.price.toFixed(2)}
