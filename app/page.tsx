@@ -40,7 +40,7 @@ export default async function Home() {
             Fake Store API testing
           </p>
           <p className="text-base text-zinc-700">
-            Hey there! I am joining the fake store API here.
+            Hey there! I am joining the fake api store API here.
           </p>
           <p className="mt-2 text-sm text-zinc-500">
             Please note that this page fetches products from Fake Store API. If you encounter any issues, it might be due to the API being down or unreachable. In such cases, an error message will be displayed below.
