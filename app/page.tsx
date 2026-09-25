@@ -10,7 +10,7 @@ type Product = {
 export default async function Home() {
   let products: Product[] = [];
   let error = "";
-  const intentionalError: number = 123;
+  const intentionalError: string = 123;
 
   try {
     const response = await fetch("https://fakestoreapi.com/products?limit=20", {
@@ -39,9 +39,9 @@ export default async function Home() {
       <div className="mx-auto max-w-7xl">
         <header className="mb-10">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-zinc-500">
-            Fake Store API Testing here
+            Fake Store API 
           </p>
-          <p>Hey there! I am joining the fake store API. good to know</p>
+          <p>Hey there! I am joining the fake store API.</p>
           please note that this page fetches product data from the Fake Store API. If you encounter any issues, it might be due to the API being down or unreachable. In such cases, an error message will be displayed below.
           <h1 className="text-4xl font-bold tracking-tight">Products</h1>
         </header>
