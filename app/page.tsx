@@ -33,8 +33,8 @@ export default async function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-zinc-50 px-6 py-12 text-zinc-900 sm:px-10 lg:px-20">
-      <div className="mx-auto max-w-7xl">
+    <main className="min-h-screen bg-zinc-50 px-6 py-12 text-zinc-700 sm:px-10">
+      <div className="mx-auto m-10 max-w-7xl">
         <header className="mb-10">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-zinc-500">
             Fake Store API testing
