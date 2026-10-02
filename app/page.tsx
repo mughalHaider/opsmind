@@ -37,7 +37,7 @@ export default async function Home() {
       <div className="mx-auto m-10 max-w-7xl">
         <header className="mb-10">
           <p className="mb-2 text-sm font-semibold uppercase text-zinc-500">
-            Fake Store API testing
+            Fake Store API testing should be testing before pushed the code
           </p>
           <p className="text-base text-zinc-700">
             Hey there! I am joining the fake api store API here.
@@ -77,7 +77,7 @@ export default async function Home() {
                     {product.title}
                   </h2>
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
-                    {product.descrtion}
+                    {product.description}
                   </p>
                   <p className="mt-5 text-xl font-bold">
                     ${product.price.toFixed(2)}
