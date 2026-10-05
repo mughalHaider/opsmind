@@ -37,7 +37,7 @@ export default async function Home() {
       <div className="mx-auto m-10 max-w-7xl">
         <header className="mb-10">
           <p className="mb-2 text-sm font-semibold uppercase text-zinc-500">
-            Fake Store API testing should be testing before pushed the code
+            Fake Store API testing should be testing okay before pushed the code
           </p>
           <p className="text-base text-zinc-700">
             Hey there! I am joining the fake api store API here.
