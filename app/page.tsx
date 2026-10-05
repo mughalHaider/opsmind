@@ -43,7 +43,7 @@ export default async function Home() {
             Hey there! I am joining the fake api store API here.
           </p>
           <p className="mt-2 text-sm text-zinc-500">
-            Please lets test again have to change something here and again and again and again and again until it not works change something here API. If you encounter any issues, it might be due to the API being down or unreachable. In such cases, an error message will be displayed below.
+            Please lets test again test have to change something here and again and again and again and again until it not works change something here API. If you encounter any issues, it might be due to the API being down or unreachable. In such cases, an error message will be displayed below.
           </p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight">Products</h1>
         </header>
@@ -64,7 +64,7 @@ export default async function Home() {
                 <div className="flex h-64 items-center justify-center bg-white p-6">
                   <img
                     src={product.image}
-                    alt={product.title}
+                    alt={product.ti}
                     loading="lazy"
                     className="h-full w-full object-contain"
                   />
