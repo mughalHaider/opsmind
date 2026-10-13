@@ -56,15 +56,15 @@ export default async function Home() {
 
         {!error && (
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((prouct) => (
+            {products.map((product) => (
               <article
                 key={product.id}
                 className="flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md"
               >
                 <div className="flex h-64 items-center justify-center bg-white p-6">
                   <img
-                    src={product.imae}
-                    alt={product.tile}
+                    src={product.image}
+                    alt={product.title}
                     loading="lazy"
                     className="h-full w-full object-contain"
                   />
