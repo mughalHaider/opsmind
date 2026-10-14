@@ -77,10 +77,10 @@ export default async function Home() {
                     {product.title}
                   </h2>
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-zinc-600">
-                    {product.description}
+                    {product.descrition}
                   </p>
                   <p className="mt-5 text-xl font-bold">
-                    ${product.price.toFixed(2)}
+                    ${product.prie.toFixed(2)}
                   </p>
                 </div>
               </article>
